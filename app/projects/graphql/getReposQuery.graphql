@@ -1,0 +1,20 @@
+query {
+    viewer {
+        login
+        repositories(first: 6, privacy: PUBLIC, orderBy: { field: CREATED_AT, direction: DESC }) {
+            nodes {
+                id
+                name
+                description
+                url
+                primaryLanguage {
+                    color
+                    id
+                    name
+                }
+                forkCount
+                stargazerCount
+            }
+        }
+    }
+}
