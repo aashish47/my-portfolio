@@ -1,7 +1,13 @@
-import { Repository } from "../Types/Repository";
+import { Metadata } from "next";
+import { Name } from "../data/Name";
+import { Repository } from "../types/Repository";
 import Repo from "./components/Repo";
 import query from "./graphql/getReposQuery.graphql";
 import { getClient } from "./lib/client";
+
+export const metadata: Metadata = {
+    title: `Projects | ${Name}`,
+};
 
 export default async function Projects() {
     const {
@@ -12,5 +18,15 @@ export default async function Projects() {
         },
     } = await getClient().query({ query });
 
-    return <div className="flex justify-between flex-wrap gap-2">{data && data.map((repo: Repository) => <Repo key={repo.id} repo={repo} />)}</div>;
+    return (
+        <div className="flex flex-wrap">
+            {data &&
+                data.map((repo: Repository) => (
+                    <Repo
+                        key={repo.id}
+                        repo={repo}
+                    />
+                ))}
+        </div>
+    );
 }

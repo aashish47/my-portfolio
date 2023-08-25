@@ -1,24 +1,37 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const NavBar = () => {
-    const navItems = ["home", "projects", "blogs", "uses"];
-    const [selected, setSelected] = useState(0);
+    const pathName = usePathname();
+    const navItems = [
+        { name: "home", link: "/" },
+        { name: "projects", link: "/projects" },
+        { name: "blog", link: "/blog" },
+        { name: "uses", link: "/uses" },
+    ];
+    const [selected, setSelected] = useState("/");
+
+    useEffect(() => {
+        const segment = pathName.match(/\/[^/]*/)?.[0];
+        if (segment) {
+            setSelected(segment);
+        }
+    }, [pathName]);
 
     return (
-        <nav className=" py-6 pl-4 md:pl-10 flex flex-wrap fixed bg-neutral-900 w-screen ">
-            {navItems.map((item, index) => (
+        <nav className=" py-6 pl-4 md:pl-10 flex flex-wrap fixed bg-zinc-950 w-screen ">
+            {navItems.map(({ name, link }) => (
                 <Link
-                    onClick={() => setSelected(index)}
-                    key={item}
+                    key={name}
                     className={`
-                    ${index === selected ? " text-white underline underline-offset-4" : "hover:text-white active:text-neutral-600 text-neutral-400"} 
+                    ${link === selected ? " text-white underline underline-offset-4" : "hover:text-white active:text-zinc-600 text-zinc-400"} 
                     mr-4 capitalize transition`}
-                    href={`/${item === "home" ? "" : item}`}
+                    href={link}
                 >
-                    {item}
+                    {name}
                 </Link>
             ))}
         </nav>

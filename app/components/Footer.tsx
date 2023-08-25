@@ -1,16 +1,37 @@
 import Image from "next/image";
 import Link from "next/link";
-import data from "../data/data.json";
 
 const Footer = () => {
-    const socials = data.socials;
+    const socials = {
+        "devto": "s",
+        "facebook": "s",
+        "github": "https://github.com/aashish47",
+        "instagram": "x",
+        "linkedin": "s",
+        "mail": "h",
+        "medium": "x",
+        "x": "x",
+        "youtube": "x",
+    };
+
     return (
-        <footer className=" bg-neutral-950 flex gap-4 py-2 items-center justify-center w-full">
+        <footer className=" bg-black flex gap-2 py-2 items-center justify-center w-full">
             {Object.entries(socials).map(
                 ([platform, link]) =>
                     link && (
-                        <Link key={platform} target="_blank" rel="noopener noreferrer" href={link}>
-                            <Image className="hover:p-0.5 duration-75 w-5 h-5" width={20} height={20} src={`${platform}.svg`} alt="" />
+                        <Link
+                            key={platform}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href={link}
+                        >
+                            <Image
+                                className="hover:p-0 p-1 duration-75 w-7 h-7"
+                                width={28}
+                                height={28}
+                                src={`/${platform}.svg`}
+                                alt=""
+                            />
                         </Link>
                     )
             )}

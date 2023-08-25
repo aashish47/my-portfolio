@@ -1,0 +1,114 @@
+---
+title: Lorem ipsum
+date: 2022-01-01
+---
+
+I recently decided to redesign and revamp my site. I had a few main goals:
+
+1. Easier content management for blog posts
+1. Simplified, minimal design
+1. Dark mode support
+
+[Click](/)
+
+###### Simplified Design
+
+🤩🤩🤩🤩🤩🤩🤩🤩🤩🤩
+
+<FullWidthImage
+    src="/demo.jpg"
+    alt=""
+/>
+
+<CustomSizeImage
+    src="/x.svg"
+    alt=""
+    width={24}
+    height={24}
+/>
+
+Before this redesign, I hand-rolled all of my components using [styled-components](https://styled-components.com/). I was trying to maintain a consistent design,
+so I'd extract shared values out into a theme.
+
+```js
+export const colors = {
+accent: '#ff5252',background: '#0a6159',
+  border: '#dcdcdc',
+  grey: {
+      100: '#F5F7FA',
+      200: '#E4E7EB',
+      300: '#CBD2D9',
+      400: '#9AA5B1',
+      500: '#7B8794',
+      600: '#616E7C',
+      700: '#52606D',
+      800: '#3E4C59',
+      900: '#323F4B',
+      1000: '#1F2933'
+  },
+  light: '#606060',
+  text: '#101010'
+};
+
+export const spacing = {
+  extrasmall: '0.5em',
+  small: '1em'
+  normal: '1.5em',
+  large: '2em',
+  extralarge: '2.5em',
+};
+```
+
+Front-end tooling has rapidly progressed, and projects like [styled-system](https://styled-system.com/) and [Theme UI](https://theme-ui.com/) make it easy
+to create components that easily adhere to your design system.
+
+My site isn't anything crazy – mostly a few simple static pages and blog posts. While coding everything myself is a
+fun learning experience, there are plenty of component libraries that contain everything necessary to achieve the
+design I was aiming for. That's why I chose to adopt [Chakra UI](https://chakra-ui.com/) for my redesign.
+
+-   It uses styled-system under the hood, allowing me to use style props
+-   The theme is extendable, allowing me to change fonts and add icons easily
+-   It includes a great set of accessible components out of the box
+-   Works well with Next.js and supports dark mode
+
+Here's a quick example of Chakra UI and styled-system. This is part of the source for
+the newsletter subscription at the bottom of this post.
+
+```js title="components/Subscribe.js"
+<Box
+    border="1px solid"
+    borderColor="blue.200"
+    bg="blue.50"
+    borderRadius={4}
+    padding={6}
+    my={4}
+>
+    <Heading
+        as="h5"
+        size="lg"
+        mb={2}
+    >
+        Subscribe to the newsletter
+    </Heading>
+    <Text>Get emails from me about web development, tech, and early access to new articles.</Text>
+    <InputGroup
+        size="md"
+        mt={4}
+    >
+        <Input
+            aria-label="Email for newsletter"
+            placeholder="tim@apple.com"
+            type="email"
+        />
+        <InputRightElement width="6.75rem">
+            <Button
+                fontWeight="bold"
+                h="1.75rem"
+                size="sm"
+            >
+                Subscribe
+            </Button>
+        </InputRightElement>
+    </InputGroup>
+</Box>
+```
