@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Repository } from "../../types/Repository";
+import { Repository } from "../types/Repository";
 
 const Repo = ({ repo }: { repo: Repository }) => {
     const { id, url, primaryLanguage, description, name, stargazerCount } = repo;

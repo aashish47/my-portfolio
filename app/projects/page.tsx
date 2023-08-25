@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 import { Name } from "../data/Name";
-import { Repository } from "../types/Repository";
 import Repo from "./components/Repo";
 import query from "./graphql/getReposQuery.graphql";
 import { getClient } from "./lib/client";
+import { Repository } from "./types/Repository";
 
 export const metadata: Metadata = {
     title: `Projects | ${Name}`,
