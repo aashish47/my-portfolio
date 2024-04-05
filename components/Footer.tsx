@@ -15,7 +15,7 @@ const Footer = () => {
     };
 
     return (
-        <footer className=" bg-black flex gap-2 py-2 items-center justify-center w-full">
+        <footer className=" bg-black flex gap-4 md:gap-2 py-2 items-center justify-center w-full">
             {Object.entries(socials).map(
                 ([platform, link]) =>
                     link && (
@@ -26,7 +26,7 @@ const Footer = () => {
                             href={link}
                         >
                             <Image
-                                className="hover:p-0 p-1 duration-75 w-7 h-7"
+                                className="md:hover:p-0 md:p-1 duration-75 w-7 h-7"
                                 width={28}
                                 height={28}
                                 src={`/footer/${platform}.svg`}
