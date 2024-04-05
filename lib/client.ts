@@ -1,7 +1,6 @@
-import { HttpLink } from "@apollo/client";
+import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { registerApolloClient } from "@apollo/experimental-nextjs-app-support/rsc";
-import { NextSSRApolloClient, NextSSRInMemoryCache } from "@apollo/experimental-nextjs-app-support/ssr";
 
 const httpLink = new HttpLink({
     uri: "https://api.github.com/graphql",
@@ -18,8 +17,8 @@ const authLink = setContext((_, { headers }) => {
 });
 
 export const { getClient } = registerApolloClient(() => {
-    return new NextSSRApolloClient({
-        cache: new NextSSRInMemoryCache(),
+    return new ApolloClient({
+        cache: new InMemoryCache(),
         link: authLink.concat(httpLink),
     });
 });
