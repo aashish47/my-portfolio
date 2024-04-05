@@ -1,0 +1,30 @@
+{
+    viewer {
+        login
+        pinnedItems(types: [REPOSITORY], first: 6) {
+            nodes {
+                ... on Repository {
+                    id
+                    name
+                    description
+                    url
+                    repositoryTopics(first: 10) {
+                        nodes {
+                            topic {
+                                id
+                                name
+                            }
+                        }
+                    }
+                    primaryLanguage {
+                        color
+                        id
+                        name
+                    }
+                    forkCount
+                    stargazerCount
+                }
+            }
+        }
+    }
+}

@@ -1,9 +1,9 @@
 // app/posts/[slug]/page.tsx
+import { Mdx } from "@/components/mdx";
+import { Name } from "@/constants/constants";
 import { allPosts } from "contentlayer/generated";
 import { format, parseISO } from "date-fns";
 import { Balancer } from "react-wrap-balancer";
-import { Name } from "../../data/Name";
-import { Mdx } from "./components/mdx";
 
 export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }));
 

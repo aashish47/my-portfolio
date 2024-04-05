@@ -3,15 +3,15 @@ import Link from "next/link";
 
 const Footer = () => {
     const socials = {
-        "devto": "s",
-        "facebook": "s",
+        "devto": "",
+        "facebook": "",
         "github": "https://github.com/aashish47",
-        "instagram": "x",
-        "linkedin": "s",
-        "mail": "h",
-        "medium": "x",
-        "x": "x",
-        "youtube": "x",
+        "instagram": "",
+        "linkedin": "",
+        "mail": "mailto:aashish27nov@gmail.com",
+        "medium": "",
+        "x": "",
+        "youtube": "",
     };
 
     return (
@@ -29,7 +29,7 @@ const Footer = () => {
                                 className="hover:p-0 p-1 duration-75 w-7 h-7"
                                 width={28}
                                 height={28}
-                                src={`/${platform}.svg`}
+                                src={`/footer/${platform}.svg`}
                                 alt=""
                             />
                         </Link>

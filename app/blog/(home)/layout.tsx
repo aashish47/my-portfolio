@@ -1,6 +1,6 @@
+import Pagination from "@/components/Pagination";
+import { Name } from "@/constants/constants";
 import { Metadata } from "next";
-import { Name } from "../../data/Name";
-import Pagination from "./components/Pagination";
 
 export const metadata: Metadata = {
     title: `Blog | ${Name}`,

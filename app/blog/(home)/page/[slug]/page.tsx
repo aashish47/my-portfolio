@@ -1,7 +1,7 @@
+import { PostCard } from "@/components/PostCard";
+import { TotalPages } from "@/constants/constants";
+import { getPagePosts } from "@/utility/getPagePosts";
 import { notFound } from "next/navigation";
-import { PostCard } from "../../components/PostCard";
-import { TotalPages } from "../../constants/constants";
-import { getPagePosts } from "../../utility/getPagePosts";
 
 export const generateStaticParams = async () => {
     let a = [];

@@ -1,17 +1,22 @@
 "use client";
 
+import Posts from "@/utility/Posts";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const NavBar = () => {
     const pathName = usePathname();
-    const navItems = [
+    let navItems = [
         { name: "home", link: "/" },
         { name: "projects", link: "/projects" },
         { name: "blog", link: "/blog" },
-        { name: "uses", link: "/uses" },
+        // { name: "uses", link: "/uses" },
     ];
+
+    if (Posts.length === 0) {
+        navItems = navItems.filter((item) => item.name !== "blog");
+    }
     const [selected, setSelected] = useState("/");
 
     useEffect(() => {

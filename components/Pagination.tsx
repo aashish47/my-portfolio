@@ -1,7 +1,7 @@
 "use client";
+import { TotalPages } from "@/constants/constants";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { TotalPages } from "../constants/constants";
 
 const Pagination = () => {
     const slug = useParams().slug || "1";

@@ -1,4 +1,4 @@
-import Posts from "@/app/data/Posts";
+import Posts from "@/utility/Posts";
 import { PostsPerPage } from "../constants/constants";
 
 export const getPagePosts = (currentPage: number) => {
