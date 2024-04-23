@@ -4,7 +4,7 @@ import { registerApolloClient } from "@apollo/experimental-nextjs-app-support/rs
 
 const httpLink = new HttpLink({
     uri: "https://api.github.com/graphql",
-    fetchOptions: { cache: "no-cache" },
+    // fetchOptions: { cache: "no-cache" },
 });
 
 const authLink = setContext((_, { headers }) => {

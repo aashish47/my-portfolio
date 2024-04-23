@@ -8,7 +8,7 @@ const Footer = () => {
         "github": "https://github.com/aashish47",
         "instagram": "",
         "linkedin": "",
-        "mail": "mailto:aashish27nov@gmail.com",
+        "mail": "mailto:aashishagarwal2711@gmail.com",
         "medium": "",
         "x": "",
         "youtube": "",
